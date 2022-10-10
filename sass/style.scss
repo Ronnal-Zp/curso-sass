@@ -1,0 +1,28 @@
+@use 'variables';
+// @use 'interpolacion';
+// @use 'nesting';
+// @use 'valores';
+// @use 'listas';
+// @use 'maps';
+// @use 'condicionales';
+// @use 'bucles';
+// @use 'mixins';
+// @use 'functions';
+@use 'condicionales-mixins';
+
+
+/* //?Propiedades cuztomisables */
+$primary: #006400;
+:root{
+    --primary: #{$primary};
+}
+
+
+h1{
+    color: variables.$color1;
+}
+
+
+
+
+

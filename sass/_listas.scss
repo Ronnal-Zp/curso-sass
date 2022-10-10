@@ -1,0 +1,18 @@
+/* //? Listas */
+
+
+@use 'sass:meta';
+@use 'sass:list';
+
+
+$margen: 10px 8px 20px 5px;
+
+@debug meta.type-of($margen);
+@debug list.nth($margen, 3); //20px
+
+$lista: list.append($margen, 10px, comma);
+
+@debug $margen; 
+@debug $lista;
+
+

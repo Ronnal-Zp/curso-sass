@@ -1,0 +1,15 @@
+/* //? Condiconales */
+
+//Una condicion puede ser falsa si es igual a: false - null
+$condicion: 1px;
+
+@if($condicion){
+    p{
+        font-size: 1.8rem;
+    }
+}
+@else{
+    p{
+        font-size: 0.8rem;
+    }
+}

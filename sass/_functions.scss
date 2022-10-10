@@ -1,0 +1,18 @@
+/* //? Functions */
+//Se deben utilizar para definir operaciones en sass, reutilziar en toda la pagina
+
+@use 'sass:math';
+
+
+@function pixelsToEm($pixel){
+    $unidad: math.div($pixel, 1px);
+
+    $res: math.div($unidad, 16);
+
+    @return $res * 1em;
+}
+
+
+.title{
+    font-size: pixelsToEm(40px);
+}

@@ -1,0 +1,38 @@
+/* //? valores */
+
+//sass recomienda usar la funcion math
+@use 'sass:math';
+@use 'sass:string';
+@use 'sass:meta';
+
+
+
+$divisonMath: math.div(25px, 5);
+// $divison: 25px / 5;
+
+
+div{
+    font-size: 10px + 10px;
+    /* unidades cuadradas no soportada en sass */
+    /* font-size: 10px * 10px [(NO)] */ 
+
+    width: $divisonMath;
+}
+
+
+
+
+
+
+$stringCon: "center";
+$stringSin: header header header;
+$color: green;
+// @debug meta.type-of(string.quote($color)); //ERROR
+
+p{
+    text-align: string.unquote($stringCon);
+    grid-template-columns: '#{ $stringSin }';
+}
+
+
+

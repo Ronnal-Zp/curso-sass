@@ -1,0 +1,26 @@
+/* //? Condicionales mixins */
+@use 'sass:math';
+
+@mixin createLayout($display, $columns){
+    @if($display == grid){
+        display: grid;
+        grid-template-columns: repeat($columns, 1fr);
+    }
+
+    @else if($display == block){
+        display: block;
+    }
+
+    @else{
+        display: flex;
+        $tamanio: math.div(100%, $columns);
+
+        & > *{width: $tamanio;}
+    }
+}
+
+
+
+.gridMain{
+    @include createLayout(flex, 8);
+}

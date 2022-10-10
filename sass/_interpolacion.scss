@@ -1,0 +1,7 @@
+/* //? Interpolacion */
+$propiedad: 'color';
+$selector: 'h1';
+
+#{$selector}{
+    #{$propiedad}: #8baa43;
+}

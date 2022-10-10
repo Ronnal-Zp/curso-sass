@@ -1,0 +1,45 @@
+/* //? Bucle For */
+
+
+//No incluye el final
+@for $i from 1 to 5{
+    .item-#{ $i }{
+        font-size: $i * 1rem;
+    }
+}
+
+//Si incluye el final
+@for $i from 1 through 5{
+    .item-#{ $i }{
+        font-size: $i * 1rem;
+    }
+}
+
+
+
+/* //? Bucle Each */
+$config: (
+    'primary': #3a3397,
+    'secondary': #532121,
+    'font':  monospace,
+);
+
+
+
+@each $key, $value in $config{
+    
+    @if($key != 'font'){
+        .#{$key}{
+            color: $value
+        }
+    }
+    @else{
+        .myFont{
+            font-family: $value;
+        }
+    }
+    
+}
+
+
+

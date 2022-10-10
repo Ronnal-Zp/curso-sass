@@ -1,0 +1,105 @@
+/* //? Mixins */
+@use 'sass:meta';
+@mixin center-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header{
+    @include center-flex;
+    //code...
+}
+
+
+
+@mixin crearGrid($rows, $columns, $gap){
+    display: grid;
+    grid-template-rows: repeat($rows, 1fr);
+    grid-template-rows: repeat($columns, 1fr);
+    gap: $gap;
+}
+
+.div{
+    @include crearGrid(3, 5, 10px);
+}
+
+
+
+
+@mixin gridGenerate($selector, $colum, $row: 2, $gap: 5px){
+    &__#{$selector}{
+        grid-template-columns: repeat($colum, 1fr);
+        grid-template-rows: repeat($row, 1fr);
+        gap: $gap;
+    }
+}
+
+.footer{
+    @include gridGenerate(container, 4)
+}
+
+
+//shorthands con mixins
+@mixin addImage($img, $repeat: no-repeat){
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background: {
+        image: url($img);
+        repeat: $repeat;
+    }
+}
+
+.hero{
+    @include addImage('uno.png');
+}
+
+
+//Parametros indefinidos
+@mixin addTransition($prop, $value, $select...){
+    @each $key in $select {
+        #{$key}:hover{
+            #{$prop}: $value
+        }
+    }
+}
+@include addTransition(opacity, 0, h1,h2,h3);
+
+
+
+
+//Aqui utilizamos el modulo 'meta' importado al inicio
+@mixin createLayout($lista...){
+    @each $prop, $value in meta.keywords($lista) {
+        #{$prop}: $value;
+    }
+}
+
+.myGrid{
+    @include createLayout($display: grid, $gap: 2rem, $color: red);
+}
+
+
+//Uso de @content para inidcar contenido de codigo css especifico
+@mixin crear-layout($rows, $columns, $color){
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    grid-template-rows: repeat($rows, 1fr);
+    background-color: $color;
+
+    @media (max-width: 500px){
+        @content($color);
+    }
+}
+
+.heroGrid{
+    @include crear-layout(4, 5) using ($color){
+        grid-template-rows: repeat(3, 1fr);
+        background-color: #74634f;
+        color: $color;
+    }
+}
+
+

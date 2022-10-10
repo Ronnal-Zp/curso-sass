@@ -1,0 +1,16 @@
+
+/* //? nesting */
+.card{
+	color: teal;
+
+	&__title{
+		text-align: center;
+	}
+
+	&__img{
+		object-fit: cover;
+		&--green{
+			color: green;
+		}
+	}
+}

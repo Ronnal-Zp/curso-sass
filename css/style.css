@@ -1,0 +1,18 @@
+/* //? Condicionales mixins */
+.gridMain {
+  display: flex;
+}
+.gridMain > * {
+  width: 12.5%;
+}
+
+/* //?Propiedades cuztomisables */
+:root {
+  --primary: #006400;
+}
+
+h1 {
+  color: #8b0000;
+}
+
+/*# sourceMappingURL=style.css.map */

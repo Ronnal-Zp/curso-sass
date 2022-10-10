@@ -1,0 +1,17 @@
+/* //? Maps */
+
+
+@use 'sass:map';
+
+$config: (
+    'primary': red,
+    'secondary': darkgreen,
+    'fonts': (
+        'arial': arial,
+        'mono': monospace
+    ),
+    'bold': bolder
+);
+
+
+@debug map.get($config, 'fonts', 'mono');
